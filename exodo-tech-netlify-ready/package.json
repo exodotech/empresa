@@ -1,0 +1,16 @@
+{
+  "name": "exodo-tech-netlify-spa",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "description": "SPA da Exodo Tech otimizada para Netlify Functions.",
+  "scripts": {
+    "check": "node --check frontend/js/i18n.js && node --check frontend/js/app.js && node --check netlify/functions/send-email.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "nodemailer": "^6.9.13"
+  }
+}

@@ -1,0 +1,41 @@
+[build]
+  publish = "frontend"
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/api/send-email"
+  to = "/.netlify/functions/send-email"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Security headers — aplicados a todas as rotas
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Cache longo para assets estáticos versionados pelo deploy da Netlify
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

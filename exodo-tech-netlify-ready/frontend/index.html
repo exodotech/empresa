@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="pt-PT" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Êxodo Tech — Infraestruturas de automação proprietária e assistentes inteligentes que libertam organizações globais das tarefas manuais. Soluções exclusivas à escala mundial.">
+    <meta name="theme-color" content="#050B14">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://exodotech.com">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://exodotech.com">
+    <meta property="og:site_name" content="Êxodo Tech">
+    <meta property="og:title" content="Êxodo Tech | Automação Inteligente que Abre Caminhos">
+    <meta property="og:description" content="Infraestruturas de automação proprietária que libertam a sua equipa das tarefas manuais, em qualquer parte do mundo.">
+    <meta property="og:locale" content="pt_PT">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@exodotech">
+    <meta name="twitter:title" content="Êxodo Tech | Automação Inteligente">
+    <meta name="twitter:description" content="Infraestruturas de automação proprietária para organizações globais.">
+    <title>Êxodo Tech | Automação Inteligente que Abre Caminhos</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config={theme:{extend:{colors:{exotechDeep:'#050B14',exotechDark:'#07111F',exotechCyan:'#00C8FF',exotechGold:'#FFB000'},fontFamily:{poppins:['Poppins','sans-serif'],inter:['Inter','sans-serif']}}}}
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="text-slate-100 antialiased tech-grid min-h-screen">
+
+<!-- ALERT -->
+<div id="custom-alert" role="alert" aria-live="polite">
+    <div style="color:var(--cyan);font-size:1.1rem;flex-shrink:0;margin-top:2px;"><i id="alert-icon" class="fa-solid fa-circle-check"></i></div>
+    <div style="flex:1;"><h4 id="alert-title" style="font-family:'Poppins',sans-serif;font-weight:700;font-size:.8rem;color:white;margin:0 0 4px;">Aviso</h4><p id="alert-message" style="font-size:.72rem;color:#94a3b8;margin:0;line-height:1.5;">Mensagem.</p></div>
+    <button onclick="hideAlert()" aria-label="Fechar" style="color:#475569;background:none;border:none;cursor:pointer;padding:0;"><i class="fa-solid fa-xmark"></i></button>
+</div>
+
+<!-- SPLASH -->
+<div id="splash-gate">
+    <div class="gate-panel gate-left"><div class="gate-left-glow"></div>
+        <div class="gate-label-left">
+            <div class="gate-word" style="color:var(--cyan);text-shadow:0 0 48px rgba(0,200,255,.60),0 0 100px rgba(0,200,255,.18);">ÊXODO</div>
+            <div class="gate-line" style="background:linear-gradient(90deg,transparent,var(--cyan));width:6rem;margin-left:auto;"></div>
+            <p style="font-size:.62rem;letter-spacing:.26em;color:rgba(0,200,255,.5);text-transform:uppercase;margin-top:.75rem;font-weight:600;" data-i18n="splash.left">Global Automation</p>
+        </div>
+    </div>
+    <div class="gate-panel gate-right"><div class="gate-right-glow"></div>
+        <div class="gate-label-right">
+            <div class="gate-word" style="color:var(--gold);text-shadow:0 0 48px rgba(255,176,0,.60),0 0 100px rgba(255,176,0,.18);">TECH</div>
+            <div class="gate-line" style="background:linear-gradient(90deg,var(--gold),transparent);width:6rem;"></div>
+            <p style="font-size:.62rem;letter-spacing:.26em;color:rgba(255,176,0,.5);text-transform:uppercase;margin-top:.75rem;font-weight:600;" data-i18n="splash.right">Intelligence</p>
+        </div>
+    </div>
+    <div id="gate-btn-wrapper">
+        <div class="logo-sea gate-logo-splash" aria-label="Êxodo Tech">
+            <span class="logo-bracket logo-bracket-l">&lt;</span><span class="logo-core">Ê</span><span class="logo-bracket logo-bracket-r">&gt;</span>
+        </div>
+        <button onclick="partTheSea()" class="gate-btn" aria-label="Entrar"><i class="fa-solid fa-water" style="margin-right:.6rem;"></i>Abrir Caminhos</button>
+    </div>
+</div>
+
+<!-- MAIN -->
+<div id="main-site" class="min-h-screen flex flex-col">
+
+<!-- HEADER -->
+<header class="site-header sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 py-3.5 flex items-center justify-between gap-4">
+        <a href="#topo" class="flex items-center gap-3 flex-shrink-0" style="text-decoration:none;">
+            <span class="logo-sea" style="font-size:1.6rem;"><span class="logo-bracket logo-bracket-l">&lt;</span><span class="logo-core">Ê</span><span class="logo-bracket logo-bracket-r">&gt;</span></span>
+            <span>
+                <span class="text-lg sm:text-xl font-extrabold tracking-wide text-white" style="font-family:'Poppins',sans-serif;">ÊXODO <span style="color:var(--gold);">TECH</span></span>
+                <p class="hidden sm:block" style="font-size:.55rem;letter-spacing:.28em;color:var(--cyan);font-weight:700;text-transform:uppercase;line-height:1;margin-top:2px;" data-i18n="header.tagline">Global Automation Intelligence</p>
+            </span>
+        </a>
+        <nav class="hidden md:flex items-center gap-6">
+            <a href="#sobre" class="nav-link" data-i18n="nav.about">A Metáfora</a>
+            <a href="#servicos" class="nav-link" data-i18n="nav.services">Serviços</a>
+            <a href="#processo" class="nav-link" data-i18n="nav.process">Processo</a>
+            <a href="#precos" class="nav-link" data-i18n="nav.ecosystem">Ecossistema</a>
+            <a href="#playground" class="nav-link" data-i18n="nav.diagnostic">Diagnóstico</a>
+            <a href="#provas" class="nav-link" data-i18n="nav.values">Valores</a>
+        </nav>
+        <div class="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+            <div style="position:relative;">
+                <button id="lang-btn" onclick="toggleLangMenu()" aria-label="Idioma / Language" class="btn-outline" style="border-radius:9999px;padding:.5rem .85rem;font-size:.7rem;display:flex;align-items:center;gap:.4rem;position:relative;z-index:1;">
+                    <i class="fa-solid fa-globe"></i><span id="lang-current">PT</span><i class="fa-solid fa-chevron-down" style="font-size:.6rem;"></i>
+                </button>
+                <div id="lang-menu" style="display:none;position:absolute;right:0;top:calc(100% + .5rem);min-width:9rem;background:rgba(7,17,31,.97);backdrop-filter:blur(20px);border:1px solid rgba(0,200,255,.20);border-radius:.85rem;padding:.35rem;box-shadow:0 16px 50px rgba(0,0,0,.5);z-index:60;">
+                    <button onclick="setLanguage('pt')" class="lang-opt">🇵🇹 Português</button>
+                    <button onclick="setLanguage('en')" class="lang-opt">🇬🇧 English</button>
+                    <button onclick="setLanguage('fr')" class="lang-opt">🇫🇷 Français</button>
+                    <button onclick="setLanguage('es')" class="lang-opt">🇪🇸 Español</button>
+                </div>
+            </div>
+            <a href="#playground" class="btn-outline hidden sm:inline-block px-4 sm:px-5 py-2 sm:py-2.5 rounded-full" style="font-size:.72rem;position:relative;z-index:1;" data-i18n="header.cta">DIAGNÓSTICO GRÁTIS</a>
+        </div>
+    </div>
+</header>
+
+<!-- HERO -->
+<section id="topo" class="relative pt-16 sm:pt-20 pb-24 sm:pb-32 flex flex-col items-center justify-center text-center overflow-hidden">
+    <div class="hero-lines" aria-hidden="true"></div>
+    <div class="max-w-4xl mx-auto px-5 sm:px-6 relative z-10">
+        <div class="hero-badge"><i class="fa-solid fa-earth-americas" style="font-size:.7rem;"></i><span data-i18n="hero.badge">Automação à escala mundial</span></div>
+        <h1 class="hero-title text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white mt-7 leading-tight" style="font-family:'Poppins',sans-serif;" data-i18n="hero.title">
+            Abra os Caminhos do Seu Negócio Através da
+            <span style="background:linear-gradient(135deg,var(--cyan),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;"> Automação Inteligente</span>
+        </h1>
+        <p class="hero-sub text-base sm:text-lg text-slate-400 mt-5 max-w-2xl mx-auto font-light leading-relaxed" data-i18n="hero.sub">
+            Tal como o mar se abriu para dar passagem, dividimos ao meio os seus problemas operacionais e abrimos um caminho limpo, livre e próspero para o crescimento da sua organização — com infraestruturas de automação proprietária, em qualquer parte do mundo.
+        </p>
+        <div class="hero-cta mt-9 flex flex-col sm:flex-row items-center justify-center gap-3">
+            <a href="#playground" class="btn-primary w-full sm:w-auto px-8 py-3.5 rounded-full" style="font-size:.75rem;"><i class="fa-solid fa-gauge-high mr-2"></i><span data-i18n="hero.cta1">Diagnóstico Operacional Grátis</span></a>
+            <a href="#servicos" class="btn-outline w-full sm:w-auto px-8 py-3.5 rounded-full" style="font-size:.75rem;"><i class="fa-solid fa-layer-group mr-2"></i><span data-i18n="hero.cta2">Ver Soluções Globais</span></a>
+        </div>
+        <div class="hero-proofline" aria-label="Serviços principais">
+            <span><i class="fa-solid fa-bolt"></i><span data-i18n="hero.pill1">Landing pages premium</span></span>
+            <span><i class="fa-solid fa-robot"></i><span data-i18n="hero.pill2">Assistentes IA 24/7</span></span>
+            <span><i class="fa-solid fa-route"></i><span data-i18n="hero.pill3">Automação de processos</span></span>
+        </div>
+    </div>
+    <div class="hero-orchestrator reveal" aria-hidden="true">
+        <div class="flow-node flow-node-cyan"><i class="fa-solid fa-user-plus"></i><span>Lead</span></div>
+        <div class="flow-link"></div>
+        <div class="flow-node flow-node-gold"><i class="fa-solid fa-brain"></i><span>Qualifica</span></div>
+        <div class="flow-link"></div>
+        <div class="flow-node flow-node-green"><i class="fa-solid fa-calendar-check"></i><span>Agenda</span></div>
+        <div class="flow-link"></div>
+        <div class="flow-node flow-node-cyan"><i class="fa-solid fa-chart-line"></i><span>Cresce</span></div>
+    </div>
+    <div style="position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);opacity:.3;animation:fadeUp 1s ease 1.5s both;"><div style="width:1px;height:2rem;background:linear-gradient(to bottom,var(--cyan),transparent);margin:auto;"></div></div>
+</section>
+
+<!-- CONCEPT -->
+<section id="sobre" class="py-20 sm:py-24 relative" style="background:rgba(7,17,31,.42);border-top:1px solid rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.04);">
+    <div class="max-w-6xl mx-auto px-5 sm:px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <div class="reveal">
+                <span class="section-badge" style="color:var(--gold);" data-i18n="concept.badge">Conceito do Caminho</span>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mt-2 text-white leading-snug" style="font-family:'Poppins',sans-serif;" data-i18n="concept.title">Do caos operacional ao caminho aberto</h2>
+                <div style="width:3rem;height:2px;background:linear-gradient(90deg,var(--cyan),var(--gold));border-radius:9999px;margin:1.25rem 0;"></div>
+                <p class="text-slate-400 leading-relaxed text-sm sm:text-base" data-i18n="concept.text">
+                    A identidade da <strong class="text-white font-semibold">Êxodo Tech</strong> nasce da icónica travessia: barreiras complexas (o mar) abrindo-se para revelar uma rota segura e iluminada (o sucesso do cliente). Atuamos como o facilitador que divide os obstáculos operacionais das organizações, permitindo que atravessem rumo à eficiência pura e à prosperidade de tempo.
+                </p>
+                <div class="grid grid-cols-3 gap-3 mt-8">
+                    <div style="text-align:center;padding:1rem .5rem;background:rgba(0,200,255,.05);border:1px solid rgba(0,200,255,.12);border-radius:.85rem;"><div style="font-size:1.5rem;font-weight:800;color:var(--cyan);font-family:'Poppins',sans-serif;">85%</div><div style="font-size:.62rem;color:#64748b;text-transform:uppercase;letter-spacing:.07em;margin-top:3px;" data-i18n="concept.s1">Tempo Poupado</div></div>
+                    <div style="text-align:center;padding:1rem .5rem;background:rgba(255,176,0,.05);border:1px solid rgba(255,176,0,.12);border-radius:.85rem;"><div style="font-size:1.5rem;font-weight:800;color:var(--gold);font-family:'Poppins',sans-serif;">24/7</div><div style="font-size:.62rem;color:#64748b;text-transform:uppercase;letter-spacing:.07em;margin-top:3px;" data-i18n="concept.s2">Operação</div></div>
+                    <div style="text-align:center;padding:1rem .5rem;background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.12);border-radius:.85rem;"><div style="font-size:1.5rem;font-weight:800;color:#22c55e;font-family:'Poppins',sans-serif;">∞</div><div style="font-size:.62rem;color:#64748b;text-transform:uppercase;letter-spacing:.07em;margin-top:3px;" data-i18n="concept.s3">Escala Global</div></div>
+                </div>
+            </div>
+            <div class="reveal flex justify-center" style="transition-delay:.15s;">
+                <div class="quote-card w-full max-w-md p-8 sm:p-10 text-center">
+                    <div style="font-size:2.5rem;color:var(--gold);margin-bottom:1rem;line-height:1;"><i class="fa-solid fa-quote-left"></i></div>
+                    <p class="text-slate-300 italic leading-relaxed text-sm sm:text-base" data-i18n="concept.quote">"A automação eficaz não serve para distanciar a sua marca dos clientes, mas para remover a burocracia diária e criar conexões humanas mais valiosas, ágeis e produtivas."</p>
+                    <div style="width:2rem;height:1.5px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);margin:1.25rem auto 1rem;"></div>
+                    <span style="font-size:.65rem;font-weight:700;color:var(--cyan);letter-spacing:.2em;text-transform:uppercase;" data-i18n="concept.author">Engenharia Êxodo Tech</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES — 4 GLOBAL -->
+<section id="servicos" class="py-20 sm:py-24">
+    <div class="max-w-6xl mx-auto px-5 sm:px-6">
+        <div class="text-center max-w-2xl mx-auto mb-14 reveal">
+            <span class="section-badge" style="color:var(--cyan);" data-i18n="services.badge">Soluções Globais</span>
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mt-2 text-white" style="font-family:'Poppins',sans-serif;" data-i18n="services.title">Engenharia de elite para o mercado mundial</h2>
+            <p class="text-slate-400 text-sm mt-4 leading-relaxed" data-i18n="services.sub">Quatro frentes de automação que transformam o modo como organizações internacionais operam, vendem e escalam.</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="service-card p-7 reveal flex flex-col" style="transition-delay:.05s;">
+                <div class="service-icon-wrap icon-cyan"><i class="fa-solid fa-globe"></i></div>
+                <h3 class="text-base font-bold text-white mb-3 leading-snug" style="font-family:'Poppins',sans-serif;" data-i18n="svc1.title">Agendas Autónomas &amp; Marcações Globais</h3>
+                <p class="text-slate-400 text-sm leading-relaxed flex-grow" data-i18n="svc1.desc">Sistemas inteligentes de agendamento que funcionam entre fusos horários e canais de mensagens, em piloto automático, sem trabalho manual da equipa.</p>
+                <div style="margin-top:1.25rem;display:flex;align-items:center;gap:.4rem;font-size:.66rem;font-weight:600;color:var(--cyan);letter-spacing:.06em;text-transform:uppercase;"><i class="fa-solid fa-arrow-right" style="font-size:.58rem;"></i><span data-i18n="svc1.tag">Multi-fuso · Omnicanal</span></div>
+            </div>
+            <div class="service-card gold-hover p-7 reveal flex flex-col" style="transition-delay:.10s;">
+                <div class="service-icon-wrap icon-gold"><i class="fa-solid fa-bolt"></i></div>
+                <h3 class="text-base font-bold text-white mb-3 leading-snug" style="font-family:'Poppins',sans-serif;" data-i18n="svc2.title">Landing Pages de Alta Conversão</h3>
+                <p class="text-slate-400 text-sm leading-relaxed flex-grow" data-i18n="svc2.desc">Criação de páginas web premium, ultra-rápidas e otimizadas globalmente para capturar leads corporativas em qualquer mercado.</p>
+                <div style="margin-top:1.25rem;display:flex;align-items:center;gap:.4rem;font-size:.66rem;font-weight:600;color:var(--gold);letter-spacing:.06em;text-transform:uppercase;"><i class="fa-solid fa-arrow-right" style="font-size:.58rem;"></i><span data-i18n="svc2.tag">Performance · SEO</span></div>
+            </div>
+            <div class="service-card p-7 reveal flex flex-col" style="transition-delay:.15s;">
+                <div class="service-icon-wrap icon-green"><i class="fa-solid fa-earth-europe"></i></div>
+                <h3 class="text-base font-bold text-white mb-3 leading-snug" style="font-family:'Poppins',sans-serif;" data-i18n="svc3.title">Automação de Faturação &amp; Fluxos Globais</h3>
+                <p class="text-slate-400 text-sm leading-relaxed flex-grow" data-i18n="svc3.desc">Sistemas que interligam faturação, stocks e seguimento de encomendas — sem qualquer trabalho manual.</p>
+                <div style="margin-top:1.25rem;display:flex;align-items:center;gap:.4rem;font-size:.66rem;font-weight:600;color:#22c55e;letter-spacing:.06em;text-transform:uppercase;"><i class="fa-solid fa-arrow-right" style="font-size:.58rem;"></i><span data-i18n="svc3.tag">Faturação · Stocks · Encomendas</span></div>
+            </div>
+            <div class="service-card gold-hover p-7 reveal flex flex-col" style="transition-delay:.20s;">
+                <div class="service-icon-wrap icon-gold"><i class="fa-solid fa-robot"></i></div>
+                <h3 class="text-base font-bold text-white mb-3 leading-snug" style="font-family:'Poppins',sans-serif;" data-i18n="svc4.title">Assistentes de Resolução e Qualificação</h3>
+                <p class="text-slate-400 text-sm leading-relaxed flex-grow" data-i18n="svc4.desc">Sistemas inteligentes que interagem, qualificam contactos e organizam os seus dados, 24 horas por dia, 7 dias por semana.</p>
+                <div style="margin-top:1.25rem;display:flex;align-items:center;gap:.4rem;font-size:.66rem;font-weight:600;color:var(--gold);letter-spacing:.06em;text-transform:uppercase;"><i class="fa-solid fa-arrow-right" style="font-size:.58rem;"></i><span data-i18n="svc4.tag">Atendimento · 24/7</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROCESS -->
+<section id="processo" class="py-20 sm:py-24 relative process-band">
+    <div class="max-w-6xl mx-auto px-5 sm:px-6 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-[.85fr_1.15fr] gap-10 lg:gap-14 items-start">
+            <div class="reveal">
+                <span class="section-badge" style="color:var(--green);" data-i18n="process.badge">Do diagnóstico à entrega</span>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mt-2 text-white leading-snug" style="font-family:'Poppins',sans-serif;" data-i18n="process.title">Um caminho simples para tirar tarefas manuais do seu negócio</h2>
+                <p class="text-slate-400 text-sm mt-4 leading-relaxed" data-i18n="process.sub">Sem promessas vagas. Entramos no seu fluxo real, escolhemos as automações que dão retorno primeiro e entregamos uma base pronta para crescer.</p>
+                <div class="process-mini">
+                    <div><strong>7-14</strong><span data-i18n="process.m1">dias para o primeiro protótipo</span></div>
+                    <div><strong>3</strong><span data-i18n="process.m2">fases de escala</span></div>
+                    <div><strong>24/7</strong><span data-i18n="process.m3">captação e resposta</span></div>
+                </div>
+            </div>
+            <div class="process-steps">
+                <div class="process-step reveal" style="transition-delay:.05s;">
+                    <span>01</span>
+                    <div><h3 data-i18n="process.s1.title">Diagnóstico de Gargalo Operacional</h3><p data-i18n="process.s1.desc">Realizamos uma imersão técnica no fluxo real da sua organização. Identificamos com precisão onde a equipa perde mais horas — leads não atendidos, marcações manuais, faturação repetitiva ou gestão interna descentralizada. O resultado é um mapa cirúrgico das vulnerabilidades operacionais.</p><div class="step-time"><i class="fa-regular fa-clock"></i><span data-i18n="process.s1.time">1–2 dias úteis</span></div></div>
+                </div>
+                <div class="process-step reveal" style="transition-delay:.10s;">
+                    <span>02</span>
+                    <div><h3 data-i18n="process.s2.title">Arquitetura da Solução Personalizada</h3><p data-i18n="process.s2.desc">Com base no diagnóstico, desenhamos a infraestrutura de automação ideal para a sua realidade. Definimos prioridades com critério técnico, mapeamos os pontos de integração e apresentamos um plano de execução faseado — em linguagem de negócio, sem ambiguidade técnica.</p><div class="step-time"><i class="fa-regular fa-clock"></i><span data-i18n="process.s2.time">2–3 dias úteis</span></div></div>
+                </div>
+                <div class="process-step reveal" style="transition-delay:.15s;">
+                    <span>03</span>
+                    <div><h3 data-i18n="process.s3.title">Engenharia, Integração e Validação</h3><p data-i18n="process.s3.desc">Construímos e configuramos todos os sistemas definidos na arquitetura — landing pages, formulários inteligentes, automações e assistentes. Cada componente passa por ciclos de teste rigorosos antes de entrar em contacto com o cliente final. Zero comprometimentos na qualidade de entrega.</p><div class="step-time"><i class="fa-regular fa-clock"></i><span data-i18n="process.s3.time">7–14 dias úteis</span></div></div>
+                </div>
+                <div class="process-step reveal" style="transition-delay:.20s;">
+                    <span>04</span>
+                    <div><h3 data-i18n="process.s4.title">Monitorização Contínua e Escala Progressiva</h3><p data-i18n="process.s4.desc">Após o lançamento, monitorizamos métricas reais, afinamos mensagens e identificamos proativamente oportunidades de melhoria. À medida que o seu negócio cresce, acrescentamos novas camadas de automação com a mesma precisão e rigor da fase inicial.</p><div class="step-time"><i class="fa-solid fa-infinity"></i><span data-i18n="process.s4.time">Parceria contínua</span></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ENTERPRISE SCALING ECOSYSTEM (substitui calculadora) -->
+<section id="precos" class="py-20 sm:py-24 relative" style="background:rgba(7,17,31,.45);border-top:1px solid rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.04);">
+    <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(700px,100%);height:min(350px,45vw);background:radial-gradient(ellipse,rgba(255,176,0,.05) 0%,transparent 70%);pointer-events:none;"></div>
+    <div class="max-w-6xl mx-auto px-5 sm:px-6 relative z-10">
+        <div class="text-center max-w-3xl mx-auto mb-14 reveal">
+            <span class="section-badge" style="color:var(--gold);" data-i18n="eco.badge">Orçamento sob Medida Global</span>
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mt-2 text-white" style="font-family:'Poppins',sans-serif;" data-i18n="eco.title">Enterprise Scaling Ecosystem</h2>
+            <p class="text-slate-400 text-sm mt-4 leading-relaxed max-w-2xl mx-auto" data-i18n="eco.sub">
+                A Êxodo Tech não trabalha com tabelas de preços rígidas. Desenhamos <strong class="text-white">infraestruturas exclusivas e flexíveis</strong>, baseadas em Arquitetura de Automação Proprietária, que se moldam ao orçamento e à capacidade de escala de cada organização — de uma empresa em crescimento a um grupo multinacional.
+            </p>
+        </div>
+        <div class="eco-wrap p-8 sm:p-12 reveal">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div class="eco-card p-7 flex flex-col">
+                    <span class="eco-tier" style="background:rgba(0,200,255,.12);border:1px solid rgba(0,200,255,.30);color:var(--cyan);"><i class="fa-solid fa-seedling"></i>Fase 1</span>
+                    <h3 class="text-lg font-bold text-white mt-4 mb-2" style="font-family:'Poppins',sans-serif;" data-i18n="eco.p1title">Fundação</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed flex-grow" data-i18n="eco.p1desc">Desenho da primeira camada de automação à medida do fluxo atual. Implementação faseada, sem disrupção da operação existente.</p>
+                    <div style="margin-top:1.25rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.06);font-size:.7rem;color:#64748b;"><i class="fa-solid fa-circle-check mr-1" style="color:var(--cyan);"></i>Arranque rápido · Risco mínimo</div>
+                </div>
+                <div class="eco-card p-7 flex flex-col" style="border-color:rgba(255,176,0,.25);">
+                    <span class="eco-tier" style="background:rgba(255,176,0,.12);border:1px solid rgba(255,176,0,.30);color:var(--gold);"><i class="fa-solid fa-arrow-trend-up"></i>Fase 2</span>
+                    <h3 class="text-lg font-bold text-white mt-4 mb-2" style="font-family:'Poppins',sans-serif;" data-i18n="eco.p2title">Expansão</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed flex-grow" data-i18n="eco.p2desc">Integração de múltiplos canais, mercados e fusos horários. A infraestrutura cresce em sintonia com a procura e a entrada em novos territórios.</p>
+                    <div style="margin-top:1.25rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.06);font-size:.7rem;color:#64748b;"><i class="fa-solid fa-circle-check mr-1" style="color:var(--gold);"></i>Multi-mercado · Omnicanal</div>
+                </div>
+                <div class="eco-card p-7 flex flex-col">
+                    <span class="eco-tier" style="background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.3);color:#22c55e;"><i class="fa-solid fa-crown"></i>Fase 3</span>
+                    <h3 class="text-lg font-bold text-white mt-4 mb-2" style="font-family:'Poppins',sans-serif;" data-i18n="eco.p3title">Soberania</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed flex-grow" data-i18n="eco.p3desc">Ecossistema autónomo de ponta a ponta, com sistemas inteligentes e parceria estratégica contínua. A organização opera à escala global com supervisão mínima.</p>
+                    <div style="margin-top:1.25rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.06);font-size:.7rem;color:#64748b;"><i class="fa-solid fa-circle-check mr-1" style="color:#22c55e;"></i>Autonomia total · Parceria</div>
+                </div>
+            </div>
+            <div class="text-center mt-10">
+                <p class="text-slate-400 text-sm mb-5 max-w-xl mx-auto" data-i18n="eco.note">Cada fase é orçamentada de forma independente e adaptada à sua realidade financeira. Falamos a sua linguagem de negócio — não de ferramentas.</p>
+                <a href="#playground" class="btn-primary inline-block px-10 py-3.5 rounded-full" style="font-size:.75rem;text-decoration:none;"><i class="fa-solid fa-comments mr-2"></i><span data-i18n="eco.cta">Falar sobre o meu Ecossistema</span></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PLAYGROUND -->
+<section id="playground" class="py-20 sm:py-24 relative" style="border-top:1px solid rgba(255,255,255,.04);">
+    <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(800px,100%);height:min(400px,45vw);background:radial-gradient(ellipse,rgba(0,200,255,.04) 0%,transparent 70%);pointer-events:none;"></div>
+    <div class="max-w-6xl mx-auto px-5 sm:px-6">
+        <div class="text-center max-w-xl mx-auto mb-12 reveal">
+            <span class="section-badge" style="color:var(--cyan);" data-i18n="pg.badge">Diagnóstico Interativo</span>
+            <h2 class="text-2xl sm:text-3xl font-bold mt-2 text-white" style="font-family:'Poppins',sans-serif;" data-i18n="pg.title">Veja o impacto antes de decidir</h2>
+            <p class="text-slate-400 text-sm mt-3" data-i18n="pg.sub">Experimente os nossos sistemas em tempo real, com inteligência artificial focada no seu negócio.</p>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-stretch">
+            <!-- LEFT -->
+            <div class="flex flex-col gap-5">
+                <div class="tab-bar">
+                    <button onclick="switchTab('form')" id="btn-tab-form" class="tab-btn active" type="button"><i class="fa-solid fa-calendar-check mr-1"></i><span data-i18n="tab.form">Contacto</span></button>
+                    <button onclick="switchTab('blueprint')" id="btn-tab-blueprint" class="tab-btn" type="button"><i class="fa-solid fa-chart-line mr-1"></i><span data-i18n="tab.blueprint">Plano Estratégico</span></button>
+                </div>
+
+                <!-- FORM -->
+                <div id="panel-form" class="flex flex-col flex-grow">
+                    <div class="glass rounded-2xl p-6 sm:p-8 flex flex-col flex-grow">
+                        <h3 class="text-base font-bold text-white mb-1" style="font-family:'Poppins',sans-serif;" data-i18n="form.title">Peça o seu Diagnóstico Gratuito</h3>
+                        <p class="text-xs text-slate-500 mb-5 leading-relaxed" data-i18n="form.sub">Deixe o seu contacto e o seu maior desafio. Respondemos pessoalmente para combinarmos a melhor altura para falar — sem compromisso.</p>
+                        <form id="proposal-form" class="flex flex-col gap-4 flex-grow" novalidate>
+                            <div>
+                                <label class="field-label" for="form-name"><i class="fa-solid fa-building mr-1" style="color:var(--cyan);"></i><span data-i18n="form.name">Nome / Empresa</span></label>
+                                <input type="text" id="form-name" required placeholder="Ex: Global Trade Corp." class="field-input" data-i18n-ph="form.namePh" autocomplete="organization">
+                            </div>
+                            <div class="field full">
+                                <label class="field-label"><i class="fa-solid fa-address-card mr-1" style="color:var(--cyan);"></i><span data-i18n="form.contact">Como prefere ser contactado?</span></label>
+                                <div class="contact-methods" role="radiogroup" aria-label="Método de contacto">
+                                    <label class="contact-choice">
+                                        <input type="radio" name="contact-method" value="whatsapp" checked>
+                                        <span><i class="fa-brands fa-whatsapp mr-1"></i><span data-i18n="form.contact.whatsapp">WhatsApp</span></span>
+                                    </label>
+                                    <label class="contact-choice">
+                                        <input type="radio" name="contact-method" value="email">
+                                        <span><i class="fa-solid fa-envelope mr-1"></i><span data-i18n="form.contact.email">E-mail</span></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div id="phone-contact-fields">
+                                <div class="contact-line">
+                                    <div>
+                                        <label class="field-label" for="form-country-code"><i class="fa-solid fa-globe mr-1" style="color:var(--cyan);"></i><span data-i18n="form.country">País / código</span></label>
+                                        <select id="form-country-code" class="field-input" autocomplete="tel-country-code">
+                                            <option value="+351" data-country="PT" selected>Portugal +351</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="field-label" id="form-phone-label" for="form-phone-number"><i class="fa-brands fa-whatsapp mr-1" style="color:var(--gold);"></i><span data-i18n="form.phone">Número de WhatsApp</span></label>
+                                        <input type="tel" id="form-phone-number" required placeholder="Ex: 912345678" class="field-input" data-i18n-ph="form.phonePh" autocomplete="tel-national" inputmode="tel">
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="email-contact-field" hidden>
+                                <label class="field-label" for="form-email-contact"><i class="fa-solid fa-envelope mr-1" style="color:var(--gold);"></i><span data-i18n="form.emailContact">Endereço de e-mail</span></label>
+                                <input type="email" id="form-email-contact" placeholder="Ex: nome@email.com" class="field-input" data-i18n-ph="form.emailContactPh" autocomplete="email">
+                            </div>
+                            <div>
+                                <label class="field-label" for="form-team"><i class="fa-solid fa-users mr-1" style="color:var(--gold);"></i><span data-i18n="form.team">Dimensão da Equipa</span></label>
+                                <select id="form-team" required class="field-input">
+                                    <option value="" disabled selected data-i18n="form.teamPh">Selecione o tamanho da equipa</option>
+                                    <option value="1-5" data-i18n="form.t1">1 – 5 colaboradores</option>
+                                    <option value="6-20" data-i18n="form.t2">6 – 20 colaboradores</option>
+                                    <option value="20+" data-i18n="form.t3">Mais de 20 colaboradores</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="field-label" for="form-niche"><i class="fa-solid fa-briefcase mr-1" style="color:var(--cyan);"></i><span data-i18n="form.niche">Área do negócio</span></label>
+                                <input type="text" id="form-niche" required placeholder="Ex: estética, restauração, serviços locais" class="field-input" data-i18n-ph="form.nichePh">
+                            </div>
+                            <div>
+                                <label class="field-label" for="form-bottleneck"><i class="fa-solid fa-triangle-exclamation mr-1" style="color:var(--gold);"></i><span data-i18n="form.gargalo">Maior Gargalo Manual</span></label>
+                                <textarea id="form-bottleneck" rows="3" required placeholder="Ex: Perdemos horas a emitir faturas e a responder a leads em vários fusos horários..." class="field-input" data-i18n-ph="form.gargaloPh"></textarea>
+                            </div>
+                            <button type="submit" id="proposal-submit" class="btn-primary w-full py-3.5 rounded-xl mt-auto" style="font-size:.75rem;"><i class="fa-solid fa-paper-plane mr-2"></i><span id="proposal-submit-label" data-i18n="form.btn">Enviar Pedido de Contacto</span></button>
+                            <div id="form-status" class="form-message" hidden role="status" aria-live="polite"></div>
+                            <div id="summary-area" class="summary-area" hidden>
+                                <textarea id="proposal-raw-text" class="field-input" readonly></textarea>
+                                <button id="copy-proposal" class="btn-outline px-4 py-2 rounded-full mt-3" type="button" data-i18n="form.copy">Copiar pedido</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- BLUEPRINT -->
+                <div id="panel-blueprint" class="hidden flex flex-col flex-grow">
+                    <div class="glass rounded-2xl p-6 sm:p-8 flex flex-col flex-grow">
+                        <h3 class="text-base font-bold text-white mb-1" style="font-family:'Poppins',sans-serif;" data-i18n="bp.title">Plano Estratégico Global</h3>
+                        <p class="text-xs text-slate-500 mb-5 leading-relaxed" data-i18n="bp.sub">Indique o seu nicho e a nossa IA elabora um Plano Estratégico completo — com diagnóstico do setor, identificação de barreiras operacionais e projeções de expansão para o mercado global.</p>
+                        <div class="flex flex-col flex-grow gap-4">
+                            <div>
+                                <label class="field-label" for="blueprint-niche"><i class="fa-solid fa-briefcase mr-1" style="color:var(--cyan);"></i><span data-i18n="bp.label">Nicho / Setor Global</span></label>
+                                <input type="text" id="blueprint-niche" placeholder="Ex: E-commerce Brand, Real Estate, Clínica Veterinária" class="field-input" data-i18n-ph="bp.placeholder">
+                            </div>
+                            <button onclick="generateAiBlueprint()" id="btn-blueprint-generate" class="btn-primary w-full py-3.5 rounded-xl mt-auto" style="font-size:.75rem;"><i class="fa-solid fa-file-invoice-dollar mr-2"></i><span data-i18n="bp.btn">Gerar Análise Estratégica</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT: DIAGNOSTIC -->
+            <div class="glass rounded-2xl p-6 sm:p-8 flex flex-col gap-5">
+                <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:.5rem;">
+                    <div>
+                        <span style="font-size:.65rem;font-weight:600;color:#475569;text-transform:uppercase;letter-spacing:.15em;" data-i18n="panel.kicker">Painel de Impacto Comercial</span>
+                        <h3 style="font-family:'Poppins',sans-serif;font-size:.95rem;font-weight:700;color:white;margin-top:2px;" data-i18n="panel.title">Diagnóstico Operacional</h3>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:.5rem;background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.05);padding:.4rem .85rem;border-radius:9999px;flex-shrink:0;">
+                        <span style="width:.55rem;height:.55rem;background:var(--cyan);border-radius:9999px;animation:neonPulseCyan 2s infinite;display:inline-block;"></span>
+                        <span style="font-size:.6rem;font-weight:700;letter-spacing:.15em;color:var(--cyan);text-transform:uppercase;" data-i18n="panel.badge">Em Tempo Real</span>
+                    </div>
+                </div>
+                <div class="diag-screen flex-grow flex flex-col justify-center gap-4 p-5 sm:p-6" style="min-height:240px;">
+                    <div id="metric-1" class="metric-card">
+                        <div class="metric-head"><span class="metric-label"><span class="metric-ico icon-cyan"><i class="fa-solid fa-hourglass-half"></i></span><span data-i18n="m1.label">Horas Mensais Libertadas</span></span><span id="metric-1-value" class="metric-value" style="color:var(--cyan);">0%</span></div>
+                        <div class="bar-track"><div id="metric-1-bar" class="bar-fill"></div></div>
+                    </div>
+                    <div id="metric-2" class="metric-card">
+                        <div class="metric-head"><span class="metric-label"><span class="metric-ico icon-green"><i class="fa-solid fa-arrow-trend-down"></i></span><span data-i18n="m2.label">Custo Operacional de Rotina</span></span><span id="metric-2-pill" class="status-pill pill-green"><i class="fa-solid fa-circle-check"></i><span data-i18n="m2.pill">Reduzido em 40%</span></span></div>
+                        <p style="font-size:.68rem;color:#475569;margin:0;" data-i18n="m2.note">Estimativa de poupança em tarefas repetitivas após automação.</p>
+                    </div>
+                    <div id="metric-3" class="metric-card">
+                        <div class="metric-head"><span class="metric-label"><span class="metric-ico icon-gold"><i class="fa-solid fa-shield-halved"></i></span><span data-i18n="m3.label">Segurança do Fluxo</span></span><span id="metric-3-pill" class="status-pill pill-gold"><i class="fa-solid fa-lock"></i><span data-i18n="m3.pill">Encriptação Ativa</span></span></div>
+                        <p style="font-size:.68rem;color:#475569;margin:0;" data-i18n="m3.note">Proteção de ponta a ponta em todas as comunicações de dados.</p>
+                    </div>
+                </div>
+                <div id="sim-console" class="sim-console"><i class="fa-solid fa-terminal mr-2" style="color:#334155;font-size:.7rem;flex-shrink:0;"></i><span id="sim-console-text" data-i18n="console.ready">Pronto. Interaja com o painel à esquerda para iniciar o diagnóstico…</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- REPORT OUTPUT -->
+<div id="blueprint-result-wrapper" style="display:none;" class="max-w-6xl mx-auto px-5 sm:px-6 pb-16">
+    <div style="background:rgba(7,17,31,.82);backdrop-filter:blur(20px);border:1px solid rgba(0,200,255,.25);border-radius:1.25rem;padding:2rem;box-shadow:0 0 40px rgba(0,200,255,.09);">
+        <h4 style="font-family:'Poppins',sans-serif;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--gold);margin-bottom:1.25rem;display:flex;align-items:center;gap:.5rem;"><i class="fa-solid fa-file-invoice-dollar"></i>Plano Estratégico Global</h4>
+        <div id="blueprint-output-text" class="report-block"></div>
+    </div>
+</div>
+
+<!-- SOCIAL PROOF -->
+<section id="provas" class="py-20 sm:py-24 relative" style="background:rgba(7,17,31,.40);border-top:1px solid rgba(255,255,255,.04);">
+    <div class="max-w-6xl mx-auto px-5 sm:px-6 relative z-10">
+        <div class="text-center max-w-2xl mx-auto mb-14 reveal">
+            <span class="section-badge" style="color:#22c55e;"><i class="fa-solid fa-compass mr-1"></i><span data-i18n="val.badge">O Que Nos Move</span></span>
+            <h2 class="text-2xl sm:text-3xl font-bold mt-2 text-white" style="font-family:'Poppins',sans-serif;" data-i18n="val.title">Os Nossos Valores</h2>
+            <p class="text-slate-400 text-sm mt-4 leading-relaxed" data-i18n="val.sub">Ainda estamos a construir o nosso portefólio — e por isso preferimos mostrar-lhe a postura com que trabalhamos. É isto que pode esperar da Êxodo Tech desde o primeiro dia.</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="proof-card p-7 reveal" style="transition-delay:.05s;">
+                <div class="service-icon-wrap icon-cyan" style="margin-bottom:1rem;"><i class="fa-solid fa-eye"></i></div>
+                <h3 class="text-base font-bold text-white mb-2" style="font-family:'Poppins',sans-serif;" data-i18n="val1.title">Transparência Radical</h3>
+                <p style="font-size:.82rem;color:#94a3b8;line-height:1.65;" data-i18n="val1.desc">Sem letras pequenas, sem jargão técnico, sem custos escondidos. Falamos a sua linguagem de negócio e dizemos sempre o que é possível — e o que não é.</p>
+            </div>
+            <div class="proof-card p-7 reveal" style="transition-delay:.10s;">
+                <div class="service-icon-wrap icon-gold" style="margin-bottom:1rem;"><i class="fa-solid fa-bullseye"></i></div>
+                <h3 class="text-base font-bold text-white mb-2" style="font-family:'Poppins',sans-serif;" data-i18n="val2.title">Resultado Antes da Ferramenta</h3>
+                <p style="font-size:.82rem;color:#94a3b8;line-height:1.65;" data-i18n="val2.desc">Não vendemos tecnologia — vendemos o caminho aberto. Cada solução existe para devolver tempo, reduzir erros e fazer o seu negócio crescer.</p>
+            </div>
+            <div class="proof-card p-7 reveal" style="transition-delay:.15s;">
+                <div class="service-icon-wrap icon-green" style="margin-bottom:1rem;"><i class="fa-solid fa-handshake-angle"></i></div>
+                <h3 class="text-base font-bold text-white mb-2" style="font-family:'Poppins',sans-serif;" data-i18n="val3.title">Parceria de Longo Prazo</h3>
+                <p style="font-size:.82rem;color:#94a3b8;line-height:1.65;" data-i18n="val3.desc">Não somos um fornecedor pontual. Crescemos consigo, fase a fase, e continuamos presentes muito depois da entrega.</p>
+            </div>
+            <div class="proof-card p-7 reveal" style="transition-delay:.05s;">
+                <div class="service-icon-wrap icon-cyan" style="margin-bottom:1rem;"><i class="fa-solid fa-hourglass-half"></i></div>
+                <h3 class="text-base font-bold text-white mb-2" style="font-family:'Poppins',sans-serif;" data-i18n="val4.title">O Tempo é Sagrado</h3>
+                <p style="font-size:.82rem;color:#94a3b8;line-height:1.65;" data-i18n="val4.desc">Cada hora gasta numa tarefa repetitiva é uma hora roubada ao que importa. A nossa missão é devolver esse tempo à sua equipa.</p>
+            </div>
+            <div class="proof-card p-7 reveal" style="transition-delay:.10s;">
+                <div class="service-icon-wrap icon-gold" style="margin-bottom:1rem;"><i class="fa-solid fa-heart"></i></div>
+                <h3 class="text-base font-bold text-white mb-2" style="font-family:'Poppins',sans-serif;" data-i18n="val5.title">Conexão Humana</h3>
+                <p style="font-size:.82rem;color:#94a3b8;line-height:1.65;" data-i18n="val5.desc">A automação remove a burocracia para aproximar — nunca para afastar. A tecnologia serve as pessoas, não o contrário.</p>
+            </div>
+            <div class="proof-card p-7 reveal" style="transition-delay:.15s;">
+                <div class="service-icon-wrap icon-green" style="margin-bottom:1rem;"><i class="fa-solid fa-shield-halved"></i></div>
+                <h3 class="text-base font-bold text-white mb-2" style="font-family:'Poppins',sans-serif;" data-i18n="val6.title">Segurança como Base</h3>
+                <p style="font-size:.82rem;color:#94a3b8;line-height:1.65;" data-i18n="val6.desc">Os seus dados e os dos seus clientes são tratados com proteção de ponta a ponta. A confiança constrói-se com rigor, não com promessas.</p>
+            </div>
+        </div>
+        <div class="text-center mt-12 reveal">
+            <p style="font-size:.85rem;color:#64748b;margin-bottom:1.25rem;" data-i18n="val.ctaText">Quer ser um dos nossos primeiros parceiros e construir resultados connosco?</p>
+            <a href="#playground" class="btn-primary inline-block px-10 py-3.5 rounded-full" style="font-size:.75rem;text-decoration:none;"><i class="fa-solid fa-rocket mr-2"></i><span data-i18n="val.ctaBtn">Começar a Minha Travessia</span></a>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer mt-auto py-12">
+    <div class="max-w-6xl mx-auto px-5 sm:px-6 text-center">
+        <p class="footer-motto" data-i18n="footer.motto">Propósito que move. Tecnologia que transforma.</p>
+        <div style="display:flex;align-items:center;justify-content:center;gap:.6rem;margin-bottom:1rem;">
+            <div style="height:1px;width:3rem;background:linear-gradient(90deg,transparent,var(--cyan));"></div>
+            <span class="logo-sea" style="font-size:1.3rem;"><span class="logo-bracket logo-bracket-l">&lt;</span><span class="logo-core">Ê</span><span class="logo-bracket logo-bracket-r">&gt;</span></span>
+            <div style="height:1px;width:3rem;background:linear-gradient(90deg,var(--cyan),transparent);"></div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;gap:1.5rem;flex-wrap:wrap;margin-bottom:1rem;">
+            <a href="#sobre" data-i18n="nav.about" style="font-size:.72rem;color:#475569;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#00C8FF'" onmouseout="this.style.color='#475569'">A Metáfora</a>
+            <a href="#servicos" data-i18n="nav.services" style="font-size:.72rem;color:#475569;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#00C8FF'" onmouseout="this.style.color='#475569'">Serviços</a>
+            <a href="#processo" data-i18n="nav.process" style="font-size:.72rem;color:#475569;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#00C8FF'" onmouseout="this.style.color='#475569'">Processo</a>
+            <a href="#precos" data-i18n="nav.ecosystem" style="font-size:.72rem;color:#475569;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#00C8FF'" onmouseout="this.style.color='#475569'">Ecossistema</a>
+            <a href="#playground" data-i18n="nav.diagnostic" style="font-size:.72rem;color:#475569;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#00C8FF'" onmouseout="this.style.color='#475569'">Diagnóstico</a>
+            <a href="#provas" data-i18n="nav.values" style="font-size:.72rem;color:#475569;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#00C8FF'" onmouseout="this.style.color='#475569'">Valores</a>
+        </div>
+        <div class="footer-verse">
+            <i class="fa-solid fa-cross"></i>
+            <span data-i18n="footer.verse">"O Senhor pelejará por vós, e vós vos calareis." — Êxodo 14:14</span>
+        </div>
+        <p style="font-size:.7rem;color:#475569;" data-i18n="footer.copy">© 2026 Êxodo Tech. Todos os direitos reservados. Global Automation Intelligence.</p>
+    </div>
+</footer>
+
+</div><!-- /#main-site -->
+
+<!-- STICKY MOBILE CTA -->
+<div id="mobile-cta">
+    <a href="#playground" class="btn-primary w-full py-3 rounded-xl text-center block" style="font-size:.72rem;"><i class="fa-solid fa-gauge-high mr-2"></i><span data-i18n="mcta">Diagnóstico Operacional Grátis</span></a>
+</div>
+
+<script src="js/i18n.js" defer></script>
+<script src="js/app.js" defer></script>
+</body>
+</html>
